@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="handler"
+            type="com.example.webprog26.databinding.EventHandler"/>
+        <variable
+            name="user"
+            type="com.example.webprog26.databinding.User"/>
+        <variable
+            name="presenter"
+            type="com.example.webprog26.databinding.PresenterImpl"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        tools:context="com.example.webprog26.databinding.MainActivity">
+
+        <TextView
+            android:id="@+id/tv_user_first_mame"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.firstName}"
+            android:onClick="@{handler::handleClick}"/>
+
+        <TextView
+            android:id="@+id/tv_user_last_mame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tv_user_first_mame"
+            android:text="@{user.lastName}" />
+
+        <Button
+            android:id="@+id/btn_save_user_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?android:attr/borderlessButtonStyle"
+            android:textColor="@color/colorAccent"
+            android:text="Save user profile"
+            android:layout_alignParentBottom="true"
+            android:onClick="@{() -> presenter.onSaveProfile(user)}"/>
+
+    </RelativeLayout>
+</layout>
